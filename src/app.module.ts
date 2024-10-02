@@ -1,18 +1,17 @@
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { JwtModule } from '@nestjs/jwt';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      playground: true,
+      autoSchemaFile: true,
+      context: ({ req }) => ({ req }),
+      installSubscriptionHandlers: true,
     }),
-    JwtModule.register({
-      secret: 'secretKey', // TODO: Replace with env variable
-      signOptions: { expiresIn: '60m' },
-    }),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
