@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import List
 
 class Company(BaseModel):
@@ -19,3 +19,20 @@ class JobPost(BaseModel):
     tech_stack: List[str]
     location: Location
     company: Company
+
+class UserBase(BaseModel):
+    email: EmailStr
+
+class UserCreate(UserBase):
+    password: str
+
+class User(UserBase):
+    id: int
+
+    class Config:
+        orm_mode = True
+
+# Schemat dla tokena (przy logowaniu)
+class Token(BaseModel):
+    access_token: str
+    token_type: str
