@@ -1,0 +1,29 @@
+# Wirtualne środowisko
+venv/
+env/
+*.venv/
+
+# Pliki cache Pythona
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pliki środowiska
+.env
+*.env
+
+# Pliki logów
+*.log
+
+# Konfiguracja IDE / Edytora
+.vscode/
+.idea/
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# Inne
+*.egg-info/
+dist/
+build/
