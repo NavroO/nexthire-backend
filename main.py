@@ -23,19 +23,35 @@ class JobPost(BaseModel):
   location: Location
   company: Company
 
-job_post = JobPost(
-  name="Software Engineer",
-  description="Python Developer",
-  is_published=True,
-  salary=100000,
-  type_of_work="Full-time",
-  experience_level="Senior",
-  employment_type="Permanent",
-  operating_mode="Remote",
-  tech_stack=["Python", "Django", "Flask"],
-  location={"name": "Remote"},
-  company={"name": "Google"}
-)
+job_post = [
+    {
+        "name": "Software Engineer",
+        "description": "Python Developer",
+        "is_published": True,
+        "salary": 100000,
+        "type_of_work": "Full-time",
+        "experience_level": "Senior",
+        "employment_type": "Permanent",
+        "operating_mode": "Remote",
+        "tech_stack": ["Python", "Django", "Flask"],
+        "location": {"name": "Remote"},
+        "company": {"name": "Google"}
+    },
+    {
+        "name": "Software Engineer",
+        "description": "Python Developer",
+        "is_published": True,
+        "salary": 100000,
+        "type_of_work": "Full-time",
+        "experience_level": "Senior",
+        "employment_type": "Permanent",
+        "operating_mode": "Remote",
+        "tech_stack": ["Python", "Django", "Flask"],
+        "location": {"name": "Remote"},
+        "company": {"name": "Google"}
+    }
+]
+
 
 @app.get("/")
 def read_root():
